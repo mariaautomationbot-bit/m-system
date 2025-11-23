@@ -14,4 +14,24 @@ export async function handler(event) {
         model: "llama3-8b-8192",
         messages: [
           { role: "system", content: "You are an AI assistant." },
-          { role: "
+          { role: "user", content: message }
+        ]
+      })
+    });
+
+    const data = await response.json();
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        reply: data.choices[0].message.content
+      })
+    };
+
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ reply: "Error processing request." })
+    };
+  }
+}
