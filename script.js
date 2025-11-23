@@ -6,9 +6,9 @@ async function askAI() {
     const response = await fetch("/.netlify/functions/ai", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question })
+        body: JSON.stringify({ message: question })
     });
 
     const data = await response.json();
-    document.getElementById("response").innerHTML = data.answer;
+    document.getElementById("response").innerHTML = data.reply;
 }
