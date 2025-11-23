@@ -1,25 +1,14 @@
 async function askAI() {
-  let question = document.getElementById("question").value;
+    let question = document.getElementById("question").value;
 
-  document.getElementById("response").innerHTML = "⏳ AI Thinking...";
+    document.getElementById("response").innerHTML = "🤖 AI Thinking...";
 
-  // نموذج ذكاء اصطناعي صغير بلا API
-  let answer = "🔮 جواب AI: " + aiBrain(question);
-  
-  document.getElementById("response").innerHTML = answer;
-}
+    const response = await fetch("/.netlify/functions/ai", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question })
+    });
 
-function aiBrain(q) {
-  q = q.toLowerCase();
-
-  if (q.includes("money") || q.includes("فلوس"))
-    return "خاصك خدمة value عالية باش تربح بزاف.";
-  
-  if (q.includes("love") || q.includes("حب"))
-    return "الحب هو الثقة والصبر.";
-  
-  if (q.includes("business"))
-    return "أي مشروع كيتبنى على حل مشكل حقيقي.";
-
-  return "مافهمتش السؤال، حاول تبدلو.";
+    const data = await response.json();
+    document.getElementById("response").innerHTML = data.answer;
 }
