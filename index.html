@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>M-System AI</title>
+  <title>AI Bot</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>M-System AI 🤖</h1>
+  <h1>My AI Bot</h1>
 
-  <div id="ai-box">
-    <p>Ask the AI anything:</p>
+  <textarea id="input" placeholder="كتب سؤالك هنا..."></textarea>
+  <button id="send">Send</button>
 
-    <input type="text" id="question" placeholder="Write your question...">
-    <button onclick="askAI()">Send</button>
-
-    <p id="response"></p>
-  </div>
+  <pre id="output"></pre>
 
   <script src="script.js"></script>
 </body>
