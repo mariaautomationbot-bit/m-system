@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>M-System AI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to M-System AI</h1>
-  <p>Your automated AI assistant system is being configured...</p>
+
+  <h1>M-System AI 🤖</h1>
+
+  <div id="ai-box">
+    <p>Ask the AI anything:</p>
+
+    <input type="text" id="question" placeholder="Write your question...">
+    <button onclick="askAI()">Send</button>
+
+    <p id="response"></p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
